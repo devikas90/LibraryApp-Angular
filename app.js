@@ -7,6 +7,7 @@ const bookdata = require('./src/model/bookdata');
 const userdata = require('./src/model/userdata')
 const app = new express();
 const path = require('path');
+var port = process.env.PORT || 3000;
 
 
 app.use(express.urlencoded({ extended: true }));
@@ -100,4 +101,5 @@ app.post('/api/login', function (req, res) {
 app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname + '/dist/libraryapp//index.html'));
 });
- app.listen(3000);
+app.listen(port,()=>{
+    console.log("server ready at:" +port)});
