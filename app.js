@@ -7,6 +7,7 @@ const bookdata = require('./src/model/bookdata');
 const userdata = require('./src/model/userdata')
 const app = new express();
 const path = require('path');
+
 var port = process.env.PORT || 3000;
 
 
@@ -14,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 //app.use(body-parser.JSON());
-
+app.use(express.static('./dist/libraryapp'));
 app.get('/api/books',function(req,res){
     res.header("Access-Control-Allow-Origin","*");
     res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
