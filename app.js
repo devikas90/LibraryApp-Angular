@@ -16,10 +16,11 @@ app.use(express.json());
 app.use(cors());
 //app.use(body-parser.JSON());
 app.use(express.static('./dist/libraryapp'));
+
 app.get('/api/books',function(req,res){
     res.header("Access-Control-Allow-Origin","*");
     res.header("Access-Control-Allow-Methods:GET,POST,PUT,DELETE");
-Bookdata.find()
+bookdata.find()
 .then(function(book){
     res.send(book);
 })
